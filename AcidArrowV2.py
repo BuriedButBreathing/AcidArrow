@@ -5,12 +5,11 @@ from PIL import Image as Im
 
 '''
 NOTES
+
 https://imgur.com/a/DFKFCel URL for PNG file
 https://imgur.com/a/b6UvuqO URL for the BMP file
 using BMP eliminates the need to remove alpha channel values
-Use RequestLibrary for HTTP requests
-Convert this to use functions where possible
-Tuple with functions?
+RequestLibrary for HTTP requests
 '''
 
 '''
@@ -19,18 +18,29 @@ gathers the values of the individual pixels, and prints out the file type,
 dimensions, encoding, and then the pixel values as individual arrays.
 '''
 
-try:
-    codex = Im.open('test.bmp')
+'This section imports an image from the file path to be parsed'
+
+
+def open_image(filename):
+    """
+    This gets rgb values  from a file
+    Args:
+        filename (str): file to open rgb values from
+    Return:
+        pixelvalues (list): list of tuples containing rgb values
+        codex (img): the image being parsed
+    """
+    codex = Im.open(filename)
     pixelvalues = list(codex.getdata())
-    print('The image is: ')
-    print(codex.format, codex.size, codex.mode)
-    pixelarray = pixelvalues
     del pixelvalues[19]
     del pixelvalues[18]
     print(sep="\n", *pixelvalues)
+    return pixelvalues, codex
 
 
-# This section is for error handling
+print('The image is: ')
+print(rgb_values)
 
-except:
-    print("Something bad happened and we crashed")
+
+if __name__ == '__main__':
+    rgb_values = open_image(filename='test.bmp')
