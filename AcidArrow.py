@@ -22,12 +22,18 @@ dimensions, encoding, and then the pixel values as individual arrays.
 try:
     codex = Im.open('test.bmp')
     pixelvalues = list(codex.getdata())
-    print('The image is: ')
-    print(codex.format, codex.size, codex.mode)
-    pixelarray = pixelvalues
     del pixelvalues[19]
     del pixelvalues[18]
     print(sep="\n", *pixelvalues)
+    print('Parsing Okay')
+    # Splits tuples into individual integers
+    for values in pixelvalues:
+        for single_value in values:
+            append = "[char]"
+            results = str(single_value)
+            output = append + results
+            print(output)
+            continue
 
 
 # This section is for error handling
