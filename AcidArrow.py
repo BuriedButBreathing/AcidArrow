@@ -30,10 +30,9 @@ try:
     for values in pixelvalues:
         for single_value in values:
             append = "[char]"
-            str(single_value)
-            print(append + single_value)
-            # result = append + single_value
-            # print(result)
+            results = str(single_value)
+            output = append + results
+            print(output)
             continue
 
 
