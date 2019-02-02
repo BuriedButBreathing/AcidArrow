@@ -2,15 +2,14 @@
 # Written by Chris Higgins
 # Requires PyPillow to function
 from PIL import Image as Im
+import subprocess
 
 '''
-NOTES
-https://imgur.com/a/DFKFCel URL for PNG file
 https://imgur.com/a/b6UvuqO URL for the BMP file
-using BMP eliminates the need to remove alpha channel values
 Use RequestLibrary for HTTP requests
 Convert this to use functions where possible
-Tuple with functions?
+PowerShell Sendkeys
+popen
 '''
 
 '''
@@ -27,13 +26,23 @@ try:
     print(sep="\n", *pixelvalues)
     print('Parsing Okay')
     # Splits tuples into individual integers
+    foobar_results = []
     for values in pixelvalues:
         for single_value in values:
-            append = "[char]"
-            results = str(single_value)
-            output = append + results
-            print(output)
-            continue
+            foobar_results.append('[char]{}'.format(single_value))
+    foobar_results.pop(53)
+    # Prints a list of concatenated strings in the format '[char]<value>'
+    # print(sep="\n", *foobar_results)
+    # Prints a 'write test' in character codes
+    output = ('(' + foobar_results[43] + ',' + foobar_results[38] + ',' + foobar_results[29] + ',' + foobar_results[40] + ','
+          + foobar_results[25] + ',' + foobar_results[0] + ',' + foobar_results[28] + ',' + foobar_results[35] + ','
+          + foobar_results[39] + ',' + foobar_results[40])
+    # print(output)
+    c1 = subprocess.Popen('powershell.exe', shell=True)
+    # c1.communicate('test')
+    # print(c1.communicate())
+    # print('returncode:', c1.returncode)
+    # # print('Finished')
 
 
 # This section is for error handling
