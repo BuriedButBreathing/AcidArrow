@@ -18,6 +18,7 @@ gathers the values of the individual pixels, and prints out the file type,
 dimensions, encoding, and then the pixel values as individual arrays.
 '''
 
+
 try:
     codex = Im.open('test.bmp')
     pixelvalues = list(codex.getdata())
@@ -49,3 +50,4 @@ try:
 
 except:
     print("Something bad happened and we crashed")
+
