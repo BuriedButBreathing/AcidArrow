@@ -27,17 +27,17 @@ try:
     print(sep="\n", *pixelvalues)
     print('Parsing Okay')
     # Splits tuples into individual integers
-    foobar_results = []
+    image_results = []
     for values in pixelvalues:
         for single_value in values:
-            foobar_results.append('[char]{}'.format(single_value))
-    foobar_results.pop(53)
+            image_results.append('[char]{}'.format(single_value))
+    image_results.pop(53)
     # Prints a list of concatenated strings in the format '[char]<value>'
-    # print(sep="\n", *foobar_results)
+    # print(sep="\n", *image_results)
     # Prints a 'write test' in character codes
-    output = ('(' + foobar_results[43] + ',' + foobar_results[38] + ',' + foobar_results[29] + ',' + foobar_results[40] + ','
-          + foobar_results[25] + ',' + foobar_results[0] + ',' + foobar_results[28] + ',' + foobar_results[35] + ','
-          + foobar_results[39] + ',' + foobar_results[40])
+    output = ('(' + image_results[43] + ',' + image_results[38] + ',' + image_results[29] + ',' + image_results[40] + ','
+          + image_results[25] + ',' + image_results[0] + ',' + image_results[28] + ',' + image_results[35] + ','
+          + image_results[39] + ',' + image_results[40])
     # print(output)
     c1 = subprocess.Popen('powershell.exe', shell=True)
     # c1.communicate('test')
