@@ -1,6 +1,5 @@
 from PIL import Image
 import requests
-import os
 import io
 import platform
 import base64
@@ -47,7 +46,7 @@ userAgent = headers_dict.get(runningOS)
 # Web Request
 
 
-def GetImage(url, x, y):
+def GetImage(url):
     response = requests.get(url, headers=userAgent)
     imageGuts = io.BytesIO(response.content)
     img = Image.open(imageGuts)
